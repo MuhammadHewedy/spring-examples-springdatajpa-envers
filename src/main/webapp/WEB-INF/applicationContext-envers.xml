@@ -15,7 +15,7 @@
 	<!-- To enable spring data jpa -->
 	<jpa:repositories base-package="envers.repository"
 		entity-manager-factory-ref="emf" transaction-manager-ref="transactionManager"
-		factory-class="org.springframework.data.envers.repository.support.EnversRevisionRepositoryFactoryBean" />
+		factory-class="org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean" />
 	<!-- // -->
 
 	<context:component-scan base-package="envers" />
