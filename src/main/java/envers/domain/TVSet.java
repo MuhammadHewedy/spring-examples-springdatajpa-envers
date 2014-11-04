@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import org.hibernate.envers.Audited;
 
 @Entity
-@Audited(withModifiedFlag = true)
+@Audited
 public class TVSet {
 
 	@Id

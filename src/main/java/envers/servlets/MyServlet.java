@@ -28,11 +28,22 @@ public class MyServlet extends HttpServlet {
 				TVSetService.class);
 
 		String id = request.getParameter("id");
-		if (id == null) {
-			tvSetService.addTVSet();
+		String list = request.getParameter("list");
+
+		if (list != null) {
+			if (id != null) {
+				long _id = Long.parseLong(id);
+				String rev = tvSetService.getHistory(_id);
+				response.setContentType("text/html");
+				response.getWriter().println(rev);
+			}
 		} else {
-			long _id = Long.parseLong(id);
-			tvSetService.updateTVSet(_id);
+			if (id == null) {
+				tvSetService.addTVSet();
+			} else {
+				long _id = Long.parseLong(id);
+				tvSetService.updateTVSet(_id);
+			}
 		}
 
 	}
